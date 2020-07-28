@@ -1,4 +1,3 @@
-#Jogo de pedra papel e tesoura, com o usuário selecionando entre md3 e md5 e o programa informando quem ganhou no final.
 from random import choice
 from time import sleep
 print('Vamos brincar de jokenpo!')
@@ -134,6 +133,7 @@ Selecione qual opção você irá escolher:"""))
         print('Você selecionou uma melhor de 5, quem tiver a melhor pontuação vence!')
         sleep(1)
         for c in range(1, 6):
+            jogador=0
             while jogador != 1 and jogador != 2 and jogador != 3:
                 print('Vamos para {}° de 5!'.format(c))
                 jogador = int(input("""[ 1 ] Pedra
@@ -241,19 +241,17 @@ Selecione qual opção você irá escolher:"""))
                 if jogador != 1 and jogador != 2 and jogador != 3:
                     print('OPÇÃO INVÁLIDA! TENTE NOVAMENTE!')
 
-            print('=' * 60)
-            if cganha > jganha:
-                print('EU GANHEI O JOGO!! PLACAR FINAL: {} PARA MIM X {} PARA VOCÊ'.format(cganha, jganha))
+        print('=' * 60)
+        if cganha > jganha:
+            print('EU GANHEI O JOGO!! PLACAR FINAL: {} PARA MIM X {} PARA VOCÊ'.format(cganha, jganha))
 
-            if jganha > cganha:
-                print('VOCÊ GANHOU O JOGO! PLACAR FINAL: {} PARA MIM X {} PARA VOCÊ, PARABÉNS!!'.format(cganha,jganha))
-            print('=' * 60)
+        if jganha > cganha:
+            print('VOCÊ GANHOU O JOGO! PLACAR FINAL: {} PARA MIM X {} PARA VOCÊ, PARABÉNS!!'.format(cganha,jganha))
+        print('=' * 60)
 
     if n != 1 and n != 2:
         print('Opção inválida! Tente novamente!')
 
-                                                                                              
-                                             
                       
                         
                 
