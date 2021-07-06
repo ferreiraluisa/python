@@ -1,2 +1,39 @@
 DICIONARIOS (tipo struct em c++?)
 Um dicionário é uma coleção, assim como as listas e as tuplas. Porém, enquanto as tuplas eram indexadas por um índice, os dicionários são indexados por chaves. Todo elemento em um dicionário possui uma chave e um valor. Chaves tipicamente são strings, valores podem ser qualquer tipo de dado.
+
+ex.:
+dados_cidades = { #dados_cidades eh do tipo dict
+    'nome' = 'Sao Paulo',
+    'estado' = 'Sao Paulo',
+    'area(km2)' = 1521,
+    'habitantes(milhoes)' = 12.18,
+}
+
+-> COMO ADICIONAR UMA NOVA CHAVE?
+    nome_do_dict['nome da chave'] = 'dentro da chave'
+    dados_cidades['pais'] = 'Brasil'
+
+-> COMO CRIAR UMA NOVA VARIAVEL "DO TIPO" DADOS_CIDADES?
+    dados_cidades2 = dados_cidades.copy()
+    dados_cidades2['nome'] = 'Sao Paulo'
+
+-> COMO ADICIONAR MAIS DADOS DE UMA VEZ SO?
+    novos_dados{
+        'populacao(milhoes)' = 15,
+        'data de fundacao' = '25/01/1554'
+    }
+    dados_cidades.update(novos_dados)
+
+->METODO GET()
+    dados_cidades.get('nome da chave') , se o dicionario dados_cidades tiver essa chave, retorna o valor da chave caso nao tenha retorna NONE
+
+->METODO KEYS(), VALUES() E ITEMS()
+    chaves = dicionario.keys()
+    print(chaves) #dict_keys(['cat', 'dog', 'mouse'])
+
+    valores = dicionario.values()
+    print(valores)#dict_values(['gato', 'cão', 'rato'])
+
+    #Já a função .items(), retorna uma lista de tuplas (chave, valor) de um dicionário
+    itens = dicionario.items()
+    print(itens)#dict_items([('cat', 'gato'), ('dog', 'cão'), ('mouse', 'rato')])
