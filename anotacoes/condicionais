@@ -1,0 +1,6 @@
+if condicao :
+    bloco de codigo
+
+elif -> quando da verdadeiro nao testa mas nenhum outro (el)if
+
+if -> teste todas mesmo que uma de verdadeiro

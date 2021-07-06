@@ -1,0 +1,53 @@
+STRINGS 
+- delimitador : aspas simples '' ou aspas duplas ""
+- caracter de espaço / : para poder escrever no texto aspas simples ou duplas
+- strings se compartam como tuplas
+
+OBS.: Operadores aritimeticos como multiplicacao e adicao(concatenacao) funcionam com string(que treco doido)
+comprimento = 'Ola, '
+nome = 'Felipe '
+print(comprimento + nome) #Ola, Felipe
+print(nome * 5) #FelipeFelipeFelipeFelipeFelipe
+
+FUNCOES PARA STRINGS
+- split(caracter) : separa as frases a partir de um caracter delimitador
+    nome_cidades: 'Sao Paulo, Rio de Janeiro, Brasilia, Porciuncula'
+    nome_cidades = nome_cidades.split(', ')
+    print(nome_cidades)
+    ['Sao Paulo' ,'Rio de Janeiro', 'Brasilia' ,'Porciuncula']
+- strip() : tira espaco excessivos(espacos que ficam antes e depois da string)
+    cabecalho = '                  MENU PRINCIPAL                   '
+    print(cabecalho.strip()) #MENU PRINCIPAL
+-title() : deixa a primeira letra de cada palavra em maiusculo
+    nome = 'rIO dE jAneirO'
+    print(nome.title()) #Rio De Janeiro
+-capitalize() : deixa a primeira letra da frase em maiusculo
+    print(nome.capitalize()) #Rio de janeiro 
+-lower() : deixa todas as letras da string em minusculo
+    print(nome.lower()) #rio de janeiro
+-upper() : deixa todas as letras em maiusculo
+    print(nome.upper()) #RIO DE JANEIRO
+-format() : para adicionar variaveis dentro da string
+    print('Meu nome eh {}, tenho {} anos e estudo {}'.format(nome,idade,curso))
+    OBS.: Quando estamos trabalhando com numero flutuante(float) para dizer quantas casas decimais queremos mostrar, precisa por entre as chaves :.numero_de_casas_decimaisf, por exemplo: 
+        preco_gasolina = 3.4675
+        print('O preco da gasolina esta {:.2f} reais'.format()) #O preco da gasolina esta 3.46
+    OBS2.: Atalho!!
+        print(f'Meu nome eh {nome}, tenho {idade} anos e estudo {curso}')
+    OBS3.:
+        # Pode-se chamar as variávies em diferentes ordens:
+            print('{2}, {1} and {0}'.format('a', 'b', 'c')) #c, b and a
+            print('{0}{1}{0}'.format('abra', 'cad'))#abracadabra
+            
+        # Podemos especificar um número de dígitos obrigatório por campo
+            dia = 1
+            mes = 8
+            ano = 2019
+            data1 = '{}/{}/{}'.format(dia, mes, ano)
+            print(data1)#1/8/2019 (O dia e o mês ocupam apenas 1 espaço)
+
+            data2 = '{:2d}/{:2d}/{:4d}'.format(dia, mes, ano) # A opção 'd' significa que o parâmetro é um número inteiro.
+            print(data2)# 1/ 8/2019 (Agora, dia e mês ocupam obrigatoriamente 2 espaços:  1/ 8/2019)
+
+            data3 = '{:02d}/{:02d}/{:04d}'.format(dia, mes, ano) # Podemos forçar que os espaços em branco sejam preenchidos com o número 0
+            print(data3) #01/08/2019 (Agora sim a data está no formato usual, dd/mm/aaaa: 01/08/2019)

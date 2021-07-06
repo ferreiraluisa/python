@@ -1,0 +1,8 @@
+lacos de repeticoes 
+WHILE
+
+while condicao:
+    bloco de codigo
+ENQUANTO A CONDICAO FOR VERDADEIRA, REPETE
+break -> quebra o laco de repeticao mais recente
+continue -> ignorar e continuar o laco

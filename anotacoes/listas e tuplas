@@ -1,0 +1,34 @@
+listas e tuplas
+
+LISTAS 
+tipo vetor em c++ "tipo"
+nome_da_lista = [item0, item1, item2, ...]
+    OBS.: iniciliar a lista sem nenhum elemento
+        nome_da_lista = []
+len(nome_da_lista) = numero de itens da lista
+print(nome_da_lista[1:3]) -> printa o elemento 1 e o elemento 2
+print(nome_da_lista[:]) -> printa todos elementos 
+print(nome_da_lista[::-1]) -> printa os elementos da lista em ordem invertida
+    OPERADORES IN/NOT IN
+para ver se está na lista
+    FUNCOES:
+-> append() = para adicionar um elemento a lista no ultimo indice
+    nome_da_lista.append('elemento')
+-> insert() = para adicionar um elemento a lista num indice especifico
+    nome_da_lista.insert(num_do_indice, 'elemento')
+-> remove() = para remover o elemento da lista
+    nome_da_lista.remove('elemento')
+-> pop() = remove um elemento da lista a partir do indice e o retorna
+    elemento_removido = nome_da_lista.pop(num_do_indice)
+
+TUPLAS 
+uma lista imutavel !!
+nome_da_tupla = item0 , item1 , item2 , ...
+    Vantagem da tupla:
+tem como fazer unpacking, ou seja, fazer variaveis receber cada elemento da lista, exemplo:
+tupla = "luisa", "pedro", "luca"
+l , p , lu = tupla
+print(l,p,lu)
+luisa pedro luca
+- print(*tupla) = imprime separadamente todos elementos da tupla
+luisa pedro luca
