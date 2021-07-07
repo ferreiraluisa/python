@@ -1,0 +1,73 @@
+MANIPULACAO DE ARQUIVOS
+
+--->METODOS:
+->open(local_do_arquivo, modo_de_operacao) : para abrir o arquivo
+        caracteres do modo de operacao 'r' , 'w' , 'a' , '+'
+    read	r	lê um arquivo existente
+    write	w	cria um novo arquivo
+    append	a	abre um arquivo existente para adicionar informações ao seu final
+    update	+	ao ser combinado com outros modos, permite alteração de arquivo já existente (ex: r+ abre um arquivo existente e permite modificá-lo)
+
+->read() : vai ler o arquivo 
+
+->close() : vai fechar o arquivo
+    OBS.:SEMPRE QUANDO ABRIMOS UM ARQUIVO E IMPORTANTE FECHARMOS ELE!!!
+
+->readline() : le uma linha do arquivo, qual linha que ira ler? por ordem, por ex na primeira fez que esse metodo eh chamado ele ira ler a primeira linha do arquivo, na segunda vez a segunda linha e etc...
+    ex.:arquivo = open('dom_casmurro.txt','r')
+    linha = arquivo.readline()
+    while linha != '': #quando o texto acaba
+        print(linha, end='')
+        linha = arquivo.readline()
+    arquivo.close() #vai printar o texto normal 
+
+->write('frase') : escreve no arquivo!
+
+--->COMO ABRIR UM ARQUIVO SEM PRECISAR FECHA-LO(as vezes esquece)?
+    with open(local_do_arquivo, modo_de_operacao) as arquivo:
+        bloco de codigo com o arquivo
+
+--->COMO CRIAR UM ARQUIVO E ESCREVER COISAS NELE?
+    with open(local_do_arquivo, 'w') as arquivo: #CUIDADO QUE SE O ARQUIVO JA EXISTIR ELE IRA SOBREESCREVER!!!!!
+        arquivo.write('essa eh a primeira linha do arquivo')
+        arquivo.write('essa eh a segunda linha do arquivo')
+        print(arquivo.read(), end='')
+
+--->COMO ADICIONAR ESCRITAS A UM ARQUIVO JA EXISTENTE?
+    with open(local_do_arquivo, 'a') as arquivo:
+        arquivo.write('essa eh a ultima linha do arquivo')
+
+----------ARQUIVOS CSV(Comma-separated values)
+    O formato CSV (Comma Separated Values, ou Valores Separados por Vírgula) é um arquivo de texto que representa dados em forma de tabela de forma simples.Poderíamos manipular estes arquivos diretamente usando as funções de arquivo vistas anteriormente. Um fator complicador é que o formato CSV não é bem padronizado: apesar do nome, é normal que outros separadores sejam usados ao invés de vírgula, como ";", para permitir que a vírgula seja usada em um campo. Idem para a separação entre linhas. Existe um módulo em Python para manipular arquivos CSV que nos ajuda a tratar essas diferenças. Todo programa que for utilizar o módulo CSV deverá importá-lo em seu início através do comando: import csv
+        import csv
+
+        with open('tabelaExemplo.csv', 'w') as arquivo:
+            escritor = csv.writer(arquivo, delimiter = ';', lineterminator = '\n') #criando um escritor
+            lista = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+            escritor.writerows(lista) # writerows escreve cada "sublista" da lista como uma linha
+
+        with open('tabelaExemplo.csv', "r") as arquivo:
+            leitor = csv.reader(arquivo, delimiter = ';', lineterminator = '\n') #criando um leitor
+            print("O conteúdo do arquivo é:")
+            print(leitor)
+            for linha in leitor:
+                print(linha)
+    
+    ->Dict Reader & Dict writer
+        Podemos também trabalhar com dicionários, nos quais a primeira linha é lida como a chave e as demais são os respectivos valores:
+            import csv
+
+            with open('email.csv', 'r') as emails:
+                leitor = csv.DictReader(emails, delimiter=';') #a primeira linha é lida como um cabeçalho
+                for linha in leitor:
+                    print(linha['Login email']) #podemos chamar um valor específico de cada linha pela chave no cabeçallho
+
+
+            with open('names.csv', 'w', newline='') as csvfile:
+                chaves = ['first_name', 'last_name'] # definimos o cabeçalho
+                writer = csv.DictWriter(csvfile, fieldnames=chaves) # especificamos o cabeçalho
+
+                writer.writeheader() # escrevemos o cabeçalho
+                writer.writerow({'first_name': 'Senhor', 'last_name': 'Batata'}) # escrevemos linhas com as chaves e valores
+                writer.writerow({'first_name': 'Will', 'last_name': 'Smith'})
+                writer.writerow({'first_name': 'Elon', 'last_name': 'Musk'})
